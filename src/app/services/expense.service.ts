@@ -13,6 +13,24 @@ export class ExpenseService {
   }
 
   getTransaction(){
-
+    return this.http.get(this.baseUrl)
   }
+  
+  createTransaction(data:any){
+    return this.http.post(this.baseUrl,data)
+  }
+
+  retrieveTransactionDetails(id:number){
+    return this.http.get(`${this.baseUrl}/${id}`)
+  }
+
+  updateTransaction(data:any,id:number){
+    return this.http.put(`${this.baseUrl}/${id}`,data)
+  }
+
+  removeTransaction(id:number){
+    return this.http.delete(`${this.baseUrl}/${id}`)
+  }
+
+  
 }
